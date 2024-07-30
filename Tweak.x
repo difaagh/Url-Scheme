@@ -1,34 +1,46 @@
-/* How to Hook with Logos
-Hooks are written with syntax similar to that of an Objective-C @implementation.
-You don't need to #include <substrate.h>, it will be done automatically, as will
-the generation of a class list and an automatic constructor.
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+#import <substrate.h>
 
-%hook ClassName
+%hook SpringBoard
 
-// Hooking a class method
-+ (id)sharedInstance {
-	return %orig;
+- (void)applicationDidFinishLaunching:(id)arg1 {
+    %orig;
+
+    NSString *appDirectory = @"/var/containers/Bundle/Application/";
+    NSError *error = nil;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *appDirectories = [fileManager contentsOfDirectoryAtPath:appDirectory error:&error];
+
+    if (error) {
+        NSLog(@"Error listing apps: %@", error);
+        return;
+    }
+
+    for (NSString *appDir in appDirectories) {
+        NSString *appPath = [appDirectory stringByAppendingPathComponent:appDir];
+        NSArray *contents = [fileManager contentsOfDirectoryAtPath:appPath error:&error];
+        
+        if (error) {
+            NSLog(@"Error accessing directory: %@", error);
+            continue;
+        }
+
+        for (NSString *file in contents) {
+            if ([file hasSuffix:@".app"]) {
+                NSString *infoPlistPath = [appPath stringByAppendingPathComponent:[file stringByAppendingPathComponent:@"Info.plist"]];
+                NSDictionary *infoPlist = [NSDictionary dictionaryWithContentsOfFile:infoPlistPath];
+
+                if (infoPlist) {
+                    NSLog(@"App: %@", file);
+                    NSLog(@"Info.plist: %@", infoPlist);
+                } else {
+                    NSLog(@"Error reading Info.plist for %@", file);
+                }
+            }
+        }
+    }
 }
 
-// Hooking an instance method with an argument.
-- (void)messageName:(int)argument {
-	%log; // Write a message about this call, including its class, name and arguments, to the system log.
-
-	%orig; // Call through to the original function with its original arguments.
-	%orig(nil); // Call through to the original function with a custom argument.
-
-	// If you use %orig(), you MUST supply all arguments (except for self and _cmd, the automatically generated ones.)
-}
-
-// Hooking an instance method with no arguments.
-- (id)noArguments {
-	%log;
-	id awesome = %orig;
-	[awesome doSomethingElse];
-
-	return awesome;
-}
-
-// Always make sure you clean up after yourself; Not doing so could have grave consequences!
 %end
-*/
+
