@@ -11,3 +11,5 @@ UrlScheme_FILES = Tweak.x
 UrlScheme_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += UrlSchemePreferences
+include $(THEOS_MAKE_PATH)/aggregate.mk
