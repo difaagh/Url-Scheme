@@ -1,5 +1,5 @@
 ARCH = arm64 arm64e
-TARGET := iphone:clang:latest:15.0
+TARGET := iphone:clang:16.5:14.5
 
 include $(THEOS)/makefiles/common.mk
 
@@ -10,5 +10,6 @@ UrlSchemePreferences_FRAMEWORKS = UIKit
 UrlSchemePreferences_PRIVATE_FRAMEWORKS = Preferences
 UrlSchemePreferences_INSTALL_PATH = /Library/PreferenceBundles
 UrlSchemePreferences_CFLAGS = -fobjc-arc
+UrlSchemePreferences_EXTRA_FRAMEWORKS = AltList
 
 include $(THEOS_MAKE_PATH)/bundle.mk

@@ -7,20 +7,41 @@
       <dict>
         <key>cell</key>
         <string>PSGroupCell</string>
-        <key>label</key>
-        <string>Settings</string>
       </dict>
       <dict>
         <key>cell</key>
-        <string>PSSwitchCell</string>
-        <key>default</key>
-        <true/>
+        <string>PSLinkListCell</string>
+        <key>detail</key>
+        <string>ATLApplicationListMultiSelectionController</string>
         <key>defaults</key>
         <string>com.difaagh.urlschemepreferences</string>
-        <key>key</key>
-        <string>AwesomeSwitch1</string>
         <key>label</key>
-        <string>Awesome Switch 1</string>
+        <string>Application</string>
+        <key>sections</key>
+        <array>
+          <dict>
+            <key>sectionType</key>
+            <string>System</string>
+          </dict>
+          <dict>
+            <key>sectionType</key>
+            <string>User</string>
+          </dict>
+        </array>
+        <key>useSearchBar</key>
+        <true/>
+        <key>hideSearchBarWhileScrolling</key>
+        <false/>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>label</key>
+        <string>Credits</string>
+      </dict>
+      <dict>
+        <key>label</key>
+        <string>difaagh</string>
       </dict>
       <dict>
         <key>action</key>
