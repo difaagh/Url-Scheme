@@ -12,11 +12,11 @@
         <key>cell</key>
         <string>PSLinkListCell</string>
         <key>detail</key>
-        <string>ATLApplicationListMultiSelectionController</string>
-        <key>defaults</key>
-        <string>com.difaagh.urlschemepreferences</string>
+        <string>USPATLController</string>
+        <key>subcontrollerClass</key>
+        <string>USPAppListController</string>
         <key>label</key>
-        <string>Application</string>
+        <string>Applications</string>
         <key>sections</key>
         <array>
           <dict>
@@ -32,6 +32,10 @@
         <true/>
         <key>hideSearchBarWhileScrolling</key>
         <false/>
+        <key>alphabeticIndexingEnabled</key>
+			  <true/>
+			  <key>showIdentifiersAsSubtitle</key>
+			  <true/>
       </dict>
       <dict>
         <key>cell</key>
