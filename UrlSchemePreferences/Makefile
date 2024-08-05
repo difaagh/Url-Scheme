@@ -6,7 +6,7 @@ include $(THEOS)/makefiles/common.mk
 BUNDLE_NAME = UrlSchemePreferences
 
 UrlSchemePreferences_FILES = USPRootListController.m
-UrlSchemePreferences_FRAMEWORKS = UIKit
+UrlSchemePreferences_FRAMEWORKS = Foundation
 UrlSchemePreferences_PRIVATE_FRAMEWORKS = Preferences
 UrlSchemePreferences_INSTALL_PATH = /Library/PreferenceBundles
 UrlSchemePreferences_CFLAGS = -fobjc-arc

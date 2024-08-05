@@ -1,6 +1,14 @@
-#import <AltList/ATLApplicationListSubcontrollerController.h>
+#import "USPATLController.h"
 
-@interface USPATLController : ATLApplicationListSubcontrollerController
+@implementation USPATLController {
+  NSUserDefaults *prefs;
+}
+
 - (NSString *)previewStringForApplicationWithIdentifier:
-    (NSString *)applicationID;
+    (NSString *)applicationID {
+  return @"";
+}
+- (instancetype)init {
+  return self;
+}
 @end
