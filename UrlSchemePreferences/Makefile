@@ -1,12 +1,13 @@
 ARCH = arm64 arm64e
-TARGET := iphone:clang:16.5:14.5
+TARGET := iphone:clang:latest:14.5
+INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = UrlSchemePreferences
 
-UrlSchemePreferences_FILES = USPRootListController.m
-UrlSchemePreferences_FRAMEWORKS = Foundation
+UrlSchemePreferences_FILES = $(wildcard USP*.*m)
+UrlSchemePreferences_FRAMEWORKS = UIKit
 UrlSchemePreferences_PRIVATE_FRAMEWORKS = Preferences
 UrlSchemePreferences_INSTALL_PATH = /Library/PreferenceBundles
 UrlSchemePreferences_CFLAGS = -fobjc-arc
