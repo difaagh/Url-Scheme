@@ -5,8 +5,7 @@
 
 #define USP_VER_PLIST @"com.difaagh.urlscheme"
 #define USP_VER_PLIST_WITH_PATH                                                \
-  jbroot(ROOT_PATH_NS(                                                         \
-      @"/var/mobile/Library/Preferences/com.difaagh.urlscheme.plist"))
+  jbroot(@"/var/mobile/Library/Preferences/com.difaagh.urlscheme.plist")
 
 @interface USPRootListController : PSListController {
   UILabel *_label;

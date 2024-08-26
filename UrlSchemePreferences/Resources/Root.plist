@@ -12,9 +12,9 @@
     <key>cell</key>
     <string>PSLinkListCell</string>
     <key>detail</key>
-    <string>USPATLController</string>
-    <key>subcontrollerClass</key>
     <string>USPAppListController</string>
+    <key>subcontrollerClass</key>
+    <string>USPATLController</string>
     <key>label</key>
     <string>Applications</string>
     <key>sections</key>

@@ -1,4 +1,6 @@
+#import "USPAppListController.h"
+#import "USPRootListController.h"
 #import <AltList/ATLApplicationListSubcontrollerController.h>
 
-@interface USPATLController : ATLApplicationListSubcontrollerController
+@interface USPATLController : USPRootListController
 @end
