@@ -11,6 +11,6 @@ UrlSchemePreferences_FRAMEWORKS = UIKit
 UrlSchemePreferences_PRIVATE_FRAMEWORKS = Preferences
 UrlSchemePreferences_INSTALL_PATH = /Library/PreferenceBundles
 UrlSchemePreferences_CFLAGS = -fobjc-arc
-UrlSchemePreferences_EXTRA_FRAMEWORKS = AltList
+UrlSchemePreferences_EXTRA_FRAMEWORKS = AltList WLogger
 
 include $(THEOS_MAKE_PATH)/bundle.mk
