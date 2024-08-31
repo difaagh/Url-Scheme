@@ -62,36 +62,6 @@
       }];
 }
 
-/* read values from preferences */
-- (id)readPreferenceValue:(PSSpecifier *)specifier {
-  NSDictionary *dict =
-      [NSDictionary dictionaryWithContentsOfFile:USP_VER_PLIST_WITH_PATH];
-  id obj = [dict objectForKey:[[specifier properties] objectForKey:@"key"]];
-  if (!obj) {
-    obj = [[specifier properties] objectForKey:@"default"];
-  }
-
-  return obj;
-}
-
-/* set the value to preferences */
-- (void)setPreferenceValue:(id)value specifier:(PSSpecifier *)specifier {
-  NSMutableDictionary *settings = [NSMutableDictionary
-      dictionaryWithContentsOfFile:USP_VER_PLIST_WITH_PATH];
-  if (!settings) {
-    settings = [NSMutableDictionary dictionary];
-  }
-  [settings setObject:value forKey:specifier.properties[@"key"]];
-  [settings writeToFile:USP_VER_PLIST_WITH_PATH atomically:YES];
-  CFStringRef notificationName =
-      (__bridge CFStringRef)specifier.properties[@"PostNotification"];
-  if (notificationName) {
-    CFNotificationCenterPostNotification(
-        CFNotificationCenterGetDarwinNotifyCenter(), notificationName, NULL,
-        NULL, YES);
-  }
-}
-
 /* restore settings */
 - (void)defaultsettings:(PSSpecifier *)specifier {
   UIAlertController *alertController = [UIAlertController
